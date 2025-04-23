@@ -1,6 +1,6 @@
 from tkinter import *
 import math
- # https://docs.google.com/document/d/1fBrRrreKnYhZFEDFsTym2HGexQFcCmfAZ01aQnsB66I/edit?usp=drivesdk
+
 
 # ---------------------------- CONSTANTS ------------------------------- #
 # Define color constants and other UI-related constants
