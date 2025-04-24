@@ -14,7 +14,8 @@ This app visualizes the Pomodoro process using a tomato timer graphic, and inclu
    - **Short breaks** (after each work session)
    - **A long break** (after every 4 work sessions)
 3. A checkmark (✔) is added below the timer for each completed work session.
-4. Click **Reset** at any time to stop the timer and reset progress.
+5. Click **Reset** at any time to stop the timer and reset progress.
+6. The user can use the **dropdown menu** to choose work minutes, short breaks and long breaks. Otherwise, it will be 25 min, 5 min and 20 respectively.
 
 ## **Session Cycle:**
 - 1st → Work  
