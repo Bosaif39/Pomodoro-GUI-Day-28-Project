@@ -28,7 +28,7 @@ This app visualizes the Pomodoro process using a tomato timer graphic, and inclu
 - 8th → Long Break  
 
 ## **Example:**
-
+![alt text](https://raw.githubusercontent.com/Bosaif39/example-pics/refs/heads/main/D_28.png?token=GHSAT0AAAAAADDL7KRAMELD5POB3EBXMY342AZUVDA)
 
 ## **Requirements:**
 - Python 3.x
