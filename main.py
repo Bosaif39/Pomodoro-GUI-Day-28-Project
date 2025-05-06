@@ -1,5 +1,7 @@
 from tkinter import *
 import math
+from tkinter import messagebox  
+
 
 # ---------------------------- CONSTANTS ------------------------------- #
 # Define color constants and other UI-related constants
@@ -19,7 +21,6 @@ reps = 0
 timer = None
 
 
-
 # ---------------------------- TIMER RESET ------------------------------- #
 def reset_timer():
     """Resets the timer to the initial state and clears the check marks."""
@@ -34,6 +35,7 @@ def reset_timer():
 # ---------------------------- TIMER MECHANISM ------------------------------- #
 def start_timer():
     """Starts the timer based on the current repetition cycle."""
+    messagebox.askokcancel(title="FYI", message=f"Work time {WORK_MIN} mins\nShort Break {SHORT_BREAK_MIN} mins\nLong Break {LONG_BREAK_MIN} mins\n")
     global reps
     reps += 1
 
@@ -87,22 +89,22 @@ def count_down(count):
         check_marks.config(text=marks)
 
 # ---------------------------- GET DROPDOWN SELECTION ------------------------------- #
-def get_work_min():
+def get_work_min(*args):
     global WORK_MIN
     selected = dropdown_var.get()
-    WORK_MIN = float(selected)
+    WORK_MIN = int(selected)
     print(f"WORK_MIN = {selected}")
 
-def get_short_min():
+def get_short_min(*args):
     global SHORT_BREAK_MIN
-    selected = dropdown_var.get()
-    SHORT_BREAK_MIN = float(selected)
+    selected = dropdown_var2.get()
+    SHORT_BREAK_MIN = int(selected)
     print(f"SHORT_BREAK_MIN = {selected}")
 
-def get_long_min():
+def get_long_min(*args):
     global LONG_BREAK_MIN
-    selected = dropdown_var.get()
-    LONG_BREAK_MIN = float(selected)
+    selected = dropdown_var3.get()
+    LONG_BREAK_MIN = int(selected)
     print(f"LONG_BREAK_MIN = {selected}")
 
 
@@ -137,7 +139,16 @@ check_marks.grid(column=1, row=3)
 
 # --- Dropdown Menu --- #
 
-dropdown_var = StringVar(value="Choose Session")
+dropdown_var = StringVar(value="Work Time")
+dropdown_var.trace_add("write", get_work_min)  # Automatically call when value changes
+
+dropdown_var2 = StringVar(value="Short Break Time")
+dropdown_var2.trace_add("write", get_short_min)  # Automatically call when value changes
+
+
+dropdown_var3 = StringVar(value="Long Break Time")
+dropdown_var3.trace_add("write", get_long_min)  # Automatically call when value changes
+
 options = [1]
 for i in range(5, 65, 5):
   options.append(i)
@@ -145,21 +156,11 @@ for i in range(5, 65, 5):
 dropdown_work = OptionMenu(window, dropdown_var, *options)
 dropdown_work.grid(column=0, row=4)
 
-dropdown_short = OptionMenu(window, dropdown_var, *options)
+dropdown_short = OptionMenu(window, dropdown_var2, *options)
 dropdown_short.grid(column=1, row=4)
 
-dropdown_long = OptionMenu(window, dropdown_var, *options)
+dropdown_long = OptionMenu(window, dropdown_var3, *options)
 dropdown_long.grid(column=2, row=4)
-
-work_button = Button(text="work min", command=get_work_min)
-work_button.grid(column=0, row=5)
-
-short_button = Button(text="short break min", command=get_short_min)
-short_button.grid(column=1, row=5)
-
-long_button = Button(text="long break min", command=get_long_min)
-long_button.grid(column=2, row=5)
-
 
 
 window.mainloop()
