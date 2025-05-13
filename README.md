@@ -32,5 +32,5 @@ This app visualizes the Pomodoro process using a tomato timer graphic, and inclu
 
 ## **Requirements:**
 - Python 3.x
-- Tkinter (pre-installed with Python)
+- `Tkinter` (pre-installed with Python)
 - A tomato image named `tomato.png` in the same directory
